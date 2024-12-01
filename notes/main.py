@@ -7,6 +7,7 @@ import os
 
 
 
+
 while True:
     data_user = input('Заметки---> ')
     data_userl = data_user.lower()
@@ -26,7 +27,7 @@ while True:
         add()
 
     elif data_userl == "remove":
-        pass
+        remove()
         
     else:
         print("Ниезвестная команда введите help для вывода всех команд")
