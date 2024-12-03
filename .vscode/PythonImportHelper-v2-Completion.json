@@ -1,0 +1,71 @@
+[
+    {
+        "label": "sqlite3",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlite3",
+        "description": "sqlite3",
+        "detail": "sqlite3",
+        "documentation": {}
+    },
+    {
+        "label": "add",
+        "importPath": "function",
+        "description": "function",
+        "isExtraImport": true,
+        "detail": "function",
+        "documentation": {}
+    },
+    {
+        "label": "lists",
+        "importPath": "function",
+        "description": "function",
+        "isExtraImport": true,
+        "detail": "function",
+        "documentation": {}
+    },
+    {
+        "label": "remove",
+        "importPath": "function",
+        "description": "function",
+        "isExtraImport": true,
+        "detail": "function",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "lists",
+        "kind": 2,
+        "importPath": "function",
+        "description": "function",
+        "peekOfCode": "def lists():\n    with sqlite3.connect('notes_agesoi.db') as x:\n        b = x.cursor()\n        b.execute(\"SELECT * FROM notes\")\n        print(b.fetchall())\ndef add():\n    #Кул стори тут была проблема с функцией и я думал чё за хуйня?\n    #Блять лол я час проебал что бы понять что на 18 строке в переменную user_input надо поставить input какой же я еблан\n    user_input = input(\"Напиши заметку --> \")\n    with sqlite3.connect('notes_agesoi.db') as x:",
+        "detail": "function",
+        "documentation": {}
+    },
+    {
+        "label": "add",
+        "kind": 2,
+        "importPath": "function",
+        "description": "function",
+        "peekOfCode": "def add():\n    #Кул стори тут была проблема с функцией и я думал чё за хуйня?\n    #Блять лол я час проебал что бы понять что на 18 строке в переменную user_input надо поставить input какой же я еблан\n    user_input = input(\"Напиши заметку --> \")\n    with sqlite3.connect('notes_agesoi.db') as x:\n        b = x.cursor()\n        b.execute(f\"INSERT INTO notes VALUES ('{user_input}')\")\ndef remove():\n    db = sqlite3.connect('notes_agesoi.db')\n    x = db.cursor()",
+        "detail": "function",
+        "documentation": {}
+    },
+    {
+        "label": "remove",
+        "kind": 2,
+        "importPath": "function",
+        "description": "function",
+        "peekOfCode": "def remove():\n    db = sqlite3.connect('notes_agesoi.db')\n    x = db.cursor()\n    x.execute()\n    db.commit()\n    db.close()\n# Создание таблицы йоу\n# db = sqlite3.connect('notes_agesoi.db')\n# x = db.cursor()\n# x.execute(\"\"\"CREATE TABLE notes (",
+        "detail": "function",
+        "documentation": {}
+    }
+]
