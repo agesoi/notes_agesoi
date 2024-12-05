@@ -46,7 +46,7 @@
         "kind": 2,
         "importPath": "function",
         "description": "function",
-        "peekOfCode": "def lists():\n    with sqlite3.connect('notes_agesoi.db') as x:\n        b = x.cursor()\n        b.execute(\"SELECT * FROM notes\")\n        print(b.fetchall())\ndef add():\n    #Кул стори тут была проблема с функцией и я думал чё за хуйня?\n    #Блять лол я час проебал что бы понять что на 18 строке в переменную user_input надо поставить input какой же я еблан\n    user_input = input(\"Напиши заметку --> \")\n    with sqlite3.connect('notes_agesoi.db') as x:",
+        "peekOfCode": "def lists():    \n    with sqlite3.connect('notes_agesoi.db') as x:\n        b = x.cursor()\n        b.execute(\"SELECT rowid, * FROM notes\")\n        screen = b.fetchall()\n        for el in screen:\n            print(str(el[0])+ f\" \" + el[1])\ndef add():\n    #Кул стори тут была проблема с функцией и я думал чё за хуйня?\n    #Блять лол я час проебал что бы понять что на 16 строке в переменную user_input надо поставить input какой же я еблан",
         "detail": "function",
         "documentation": {}
     },
@@ -55,7 +55,7 @@
         "kind": 2,
         "importPath": "function",
         "description": "function",
-        "peekOfCode": "def add():\n    #Кул стори тут была проблема с функцией и я думал чё за хуйня?\n    #Блять лол я час проебал что бы понять что на 18 строке в переменную user_input надо поставить input какой же я еблан\n    user_input = input(\"Напиши заметку --> \")\n    with sqlite3.connect('notes_agesoi.db') as x:\n        b = x.cursor()\n        b.execute(f\"INSERT INTO notes VALUES ('{user_input}')\")\ndef remove():\n    db = sqlite3.connect('notes_agesoi.db')\n    x = db.cursor()",
+        "peekOfCode": "def add():\n    #Кул стори тут была проблема с функцией и я думал чё за хуйня?\n    #Блять лол я час проебал что бы понять что на 16 строке в переменную user_input надо поставить input какой же я еблан\n    user_input = input(\"Напиши заметку --> \")\n    with sqlite3.connect('notes_agesoi.db') as x:\n        b = x.cursor()\n        b.execute(f\"INSERT INTO notes VALUES ('{user_input}')\")\ndef remove():\n    with sqlite3.connect('notes_agesoi.db') as x:\n        b = x.cursor()",
         "detail": "function",
         "documentation": {}
     },
@@ -64,7 +64,7 @@
         "kind": 2,
         "importPath": "function",
         "description": "function",
-        "peekOfCode": "def remove():\n    db = sqlite3.connect('notes_agesoi.db')\n    x = db.cursor()\n    x.execute()\n    db.commit()\n    db.close()\n# Создание таблицы йоу\n# db = sqlite3.connect('notes_agesoi.db')\n# x = db.cursor()\n# x.execute(\"\"\"CREATE TABLE notes (",
+        "peekOfCode": "def remove():\n    with sqlite3.connect('notes_agesoi.db') as x:\n        b = x.cursor()\n        user_input = int(input(\"Удалите заметку по id --> \"))\n        b.execute(\"DELETE FROM notes WHERE rowid = ?\", (user_input,))\n# Создание таблицы йоу\n# db = sqlite3.connect('notes_agesoi.db')\n# x = db.cursor()\n# x.execute(\"\"\"CREATE TABLE notes (\n#     notes ",
         "detail": "function",
         "documentation": {}
     }

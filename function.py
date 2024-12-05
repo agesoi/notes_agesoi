@@ -2,17 +2,19 @@ import sqlite3
 
 
 
-def lists():
+def lists():    
     with sqlite3.connect('notes_agesoi.db') as x:
     
         b = x.cursor()
-        b.execute("SELECT * FROM notes")
-        print(b.fetchall())
+        b.execute("SELECT rowid, * FROM notes")
+        screen = b.fetchall()
+        for el in screen:
+            print(str(el[0])+ f" " + el[1])
         
 
 def add():
     #Кул стори тут была проблема с функцией и я думал чё за хуйня?
-    #Блять лол я час проебал что бы понять что на 18 строке в переменную user_input надо поставить input какой же я еблан
+    #Блять лол я час проебал что бы понять что на 16 строке в переменную user_input надо поставить input какой же я еблан
     user_input = input("Напиши заметку --> ")
     
     with sqlite3.connect('notes_agesoi.db') as x:
@@ -25,13 +27,13 @@ def add():
     
 
 def remove():
-    db = sqlite3.connect('notes_agesoi.db')
+    with sqlite3.connect('notes_agesoi.db') as x:
+        b = x.cursor()
+        
+        user_input = int(input("Удалите заметку по id --> "))
+        
+        b.execute("DELETE FROM notes WHERE rowid = ?", (user_input,))
     
-    x = db.cursor()
-    x.execute()
-    
-    db.commit()
-    db.close()
 
 
 
